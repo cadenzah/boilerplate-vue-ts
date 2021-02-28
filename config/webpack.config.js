@@ -16,7 +16,7 @@ module.exports = (env) => {
     entry: [
       'core-js/stable',
       'regenerator-runtime/runtime',
-      './src/main.js'
+      './src/main.ts'
     ],
     output: {
       publicPath: '/',
@@ -54,6 +54,10 @@ module.exports = (env) => {
             },
             'sass-loader',
           ],
+        },
+        {
+          test: /\.ts$/, // .ts파일을
+          loader: 'ts-loader' // ts-loader로 해석
         },
       ],
     },
