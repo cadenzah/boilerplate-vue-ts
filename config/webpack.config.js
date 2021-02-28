@@ -24,6 +24,11 @@ module.exports = (env) => {
       path: buildPath,
     },
     mode: 'production',
+    resolve: {
+      alias: {
+        '@': srcPath,
+      },
+    },
     module: {
       rules: [
         {

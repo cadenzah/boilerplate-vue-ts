@@ -11,6 +11,7 @@ module.exports = (env) => {
   // file paths
   const configPath = path.join(__dirname);
   const buildPath = path.join(configPath, '..', 'build');
+  const srcPath = path.join(configPath, '..', 'src');
 
   const config = {
     entry: [
@@ -24,6 +25,11 @@ module.exports = (env) => {
       path: buildPath,
     },
     mode: 'development',
+    resolve: {
+      alias: {
+        '@': srcPath,
+      },
+    },
     module: {
       rules: [
         {
