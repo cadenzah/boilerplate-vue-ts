@@ -1,8 +1,9 @@
 // display the target element if argument's value reaches the property's value
 // ex) <p v-conditional:[count]="10"></p>
+import { VNode } from 'vue/types';
 const s = JSON.stringify;
 
-const directive = function(el, binding, vnode) {
+function directive(el: HTMLElement, binding: any, vnode: VNode) {
   const count = binding.arg;
   const indicator = binding.value;
 
@@ -10,7 +11,7 @@ const directive = function(el, binding, vnode) {
     el.style.visibility = 'visible';
   else
     el.style.visibility = 'hidden';
-};
+}
 
 export default directive;
 

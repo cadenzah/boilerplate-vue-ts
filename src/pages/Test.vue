@@ -6,13 +6,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    navigatePrev() {
-      this.$router.go(-1);
-    },
-  },
+<script lang="ts">
+import { Vue, Prop, Component, Mixins } from 'vue-property-decorator';
+
+@Component
+export default class Test extends Vue {
+  
+  navigatePrev(): void {
+    this.$router.go(-1);
+  }
 }
 </script>
 
