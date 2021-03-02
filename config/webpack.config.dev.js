@@ -67,7 +67,11 @@ module.exports = (env) => {
         },
         {
           test: /\.ts$/, // .ts파일을
-          loader: 'ts-loader' // ts-loader로 해석
+          loader: 'ts-loader', // ts-loader로 해석
+          exclude: /node_modules/,
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+          },
         },
       ],
     },
