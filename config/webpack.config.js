@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoader = require('vue-loader');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -11,6 +12,7 @@ module.exports = (env) => {
   // file paths
   const configPath = path.join(__dirname);
   const buildPath = path.join(configPath, '..', 'build');
+  const srcPath = path.join(configPath, '..', 'src');
 
   const config = {
     entry: [
@@ -72,8 +74,15 @@ module.exports = (env) => {
       ],
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './public/index.html',
+        minify: {
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyJS: true,
+        },
+        hash: true
       }),
       new VueLoaderPlugin(),
       new webpack.DefinePlugin(envKeys.stringified),
