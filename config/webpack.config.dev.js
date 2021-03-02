@@ -26,6 +26,7 @@ module.exports = (env) => {
     },
     mode: 'development',
     resolve: {
+      extensions: [".ts", ".js", ".vue"],
       alias: {
         '@': srcPath,
       },
