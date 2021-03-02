@@ -12,6 +12,7 @@ module.exports = (env) => {
   const configPath = path.join(__dirname);
   const buildPath = path.join(configPath, '..', 'build');
   const srcPath = path.join(configPath, '..', 'src');
+  const publicPath = process.env.PUBLIC_PATH;
 
   const config = {
     entry: [
@@ -20,7 +21,7 @@ module.exports = (env) => {
       './src/main.ts'
     ],
     output: {
-      publicPath: '/',
+      publicPath: publicPath ? publicPath : '/',
       filename: 'js/[name].js',
       path: buildPath,
     },
