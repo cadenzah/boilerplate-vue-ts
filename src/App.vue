@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navigation></navigation>
+    <Navigation></Navigation>
     <hr />
     <h2>Vue.js Boilerplate</h2>
     <p>This is a sample page written based on this boilerplate project. You can try this out. Just clone it and make your own project! </p>
@@ -9,19 +9,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import {
-  Navigation,
+  Navigation
 } from '@/components';
 
-export default {
+@Component({
   components: {
-    navigation: Navigation,
-  },
-  created: function() {
-    console.log(this)
+    Navigation,
   }
-};
+})
+export default class App extends Vue {
+  public message: string = '';
+
+  created() {
+    console.log(this);
+  }
+}
 </script>
 
 <style>

@@ -7,24 +7,22 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Prop, Component, Mixins } from 'vue-property-decorator';
 import { Card } from '@/components';
 
-export default {
+@Component({
   components: {
-    card: Card,
+    Card,
   },
-  data: function() {
-    return {
-      message: `${process.env.__NOT_USED__}`,
-    }
-  },
-  methods: {
-    navigateTest() {
-      return this.$router.push('/test');
-    },
-  },
-};
+})
+export default class Root extends Vue {
+  public message: string = `${process.env.__NOT_USED__}`;
+
+  navigateTest():void {
+    this.$router.push('/test');
+  }
+}
 </script>
 
 <style>
